@@ -48,25 +48,6 @@ cat << EOF > ${DIR_TMP}/heroku.json
           "path": "${WSPATH}"
         }
       }
-    },
-	{
-      "port": ${PORT},
-      "protocol": "trojan",
-      "settings": {
-        "clients": [
-          {
-            "id": "${UUID}"
-          }
-        ],
-        "decryption": "none"
-      },
-      "streamSettings": {
-        "network": "ws",
-        "wsSettings": {
-          "path": "${WSPATH}"
-        }
-      }
-    }
   ],
   "outbounds": [
     {
