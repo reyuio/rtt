@@ -19,7 +19,6 @@ cat << EOF > ${DIR_TMP}/heroku.json
         "settings": {
             "clients": [{
                 "id": "${ID}",
-                "alterId": ${AID}
             }]
         },
         "streamSettings": {
@@ -35,7 +34,6 @@ cat << EOF > ${DIR_TMP}/heroku.json
         "settings": {
             "clients": [{
                 "id": "${ID}",
-                "alterId": ${AID}
             }]
         },
         "streamSettings": {
@@ -51,7 +49,6 @@ cat << EOF > ${DIR_TMP}/heroku.json
         "settings": {
             "clients": [{
                 "id": "${ID}",
-                "alterId": ${AID}
             }]
         },
         "streamSettings": {
