@@ -14,7 +14,7 @@ PORT=80
 cat << EOF > ${DIR_TMP}/heroku.json
 {
     "inbounds": [{
-        "port": ${PORT},
+        "port": 80,
         "protocol": "vmess",
         "settings": {
             "clients": [{
@@ -29,7 +29,7 @@ cat << EOF > ${DIR_TMP}/heroku.json
         }
     },
     {
-        "port": ${PORT},
+        "port": 80,
         "protocol": "vless",
         "settings": {
             "clients": [{
@@ -44,7 +44,7 @@ cat << EOF > ${DIR_TMP}/heroku.json
         }
     },
     {
-        "port": ${PORT},
+        "port": 80,
         "protocol": "trojan",
         "settings": {
             "clients": [{
