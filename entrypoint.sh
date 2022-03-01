@@ -13,24 +13,6 @@ PORT=80
 cat << EOF > ${DIR_TMP}/heroku.json
 {
   "inbounds": [
-    {
-      "port": ${PORT},
-      "protocol": "vless",
-      "settings": {
-        "clients": [
-          {
-            "id": "${UUID}"
-          }
-        ],
-        "decryption": "none"
-      },
-      "streamSettings": {
-        "network": "ws",
-        "wsSettings": {
-          "path": "${WSPATH}"
-        }
-      }
-    },
 	{
       "port": ${PORT},
       "protocol": "vmess",
