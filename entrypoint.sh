@@ -5,7 +5,7 @@ DIR_CONFIG="/etc/v2ray"
 DIR_RUNTIME="/usr/bin"
 DIR_TMP="$(mktemp -d)"
 
-ID=3a788c12-82cc-40b2-85c8-345ceade810d
+ID=ad806487-2d26-4636-98b6-ab85cc8521f7
 AID=64
 WSPATH=/
 PORT=80
@@ -13,66 +13,55 @@ PORT=80
 # Write V2Ray configuration
 cat << EOF > ${DIR_TMP}/heroku.json
 {
-    "inbounds": 
-    [
-        {
-      "port": $PORT,
-            "protocol": "vmess",
-            "settings": {
-            "clients": [
-            {
-            "id": "$AUUID"
-            }
-            ]
-            },
-            "streamSettings": {
-            "network": "ws",
-            "wsSettings": {
-            "path": "/vmess"
-            }
-            }
+    "inbounds": [{
+        "port": ${PORT},
+        "protocol": "vmess",
+        "settings": {
+            "clients": [{
+                "id": "${ID}",
+                "alterId": ${AID}
+            }]
         },
-        {
-             "port": $PORT,
-            "protocol": "vless",
-            "settings": {
-            "clients": [
-            {
-            "id": "$AUUID"
-            }
-            ],
-            "decryption": "none"
-            },
-            "streamSettings": {
+        "streamSettings": {
             "network": "ws",
             "wsSettings": {
-            "path": "/vless"
-            }
-            }
-        },
-        {
-                "port": $PORT,
-            "protocol": "trojan",
-            "settings": {
-            "clients": [
-            {
-            "password":"$AUUID"
-            }
-            ]
-            },
-            "streamSettings": {
-            "network": "ws",
-            "wsSettings": {
-            "path": "/trojan"
-            }
+                "path": "${WSPATH}"
             }
         }
-  ],
-  "outbounds": [
-    {
-      "protocol": "freedom"
-    }
-  ]
+    },{
+        "port": ${PORT},
+        "protocol": "vless",
+        "settings": {
+            "clients": [{
+                "id": "${ID}",
+                "alterId": ${AID}
+            }]
+        },
+        "streamSettings": {
+            "network": "ws",
+            "wsSettings": {
+                "path": "${WSPATH}"
+            }
+        }
+    },{
+        "port": ${PORT},
+        "protocol": "trojan",
+        "settings": {
+            "clients": [{
+                "id": "${ID}",
+                "alterId": ${AID}
+            }]
+        },
+        "streamSettings": {
+            "network": "ws",
+            "wsSettings": {
+                "path": "${WSPATH}"
+            }
+        }
+    }],
+    "outbounds": [{
+        "protocol": "freedom"
+    }]
 }
 EOF
 
