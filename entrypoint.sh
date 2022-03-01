@@ -48,6 +48,7 @@ cat << EOF > ${DIR_TMP}/heroku.json
           "path": "${WSPATH}"
         }
       }
+    }
   ],
   "outbounds": [
     {
