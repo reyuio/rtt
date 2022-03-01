@@ -28,7 +28,8 @@ cat << EOF > ${DIR_TMP}/heroku.json
                 "path": "${WSPATH}"
             }
         }
-    },{
+    },
+    {
         "port": ${PORT},
         "protocol": "vless",
         "settings": {
@@ -43,7 +44,8 @@ cat << EOF > ${DIR_TMP}/heroku.json
                 "path": "${WSPATH}"
             }
         }
-    },{
+    },
+    {
         "port": ${PORT},
         "protocol": "trojan",
         "settings": {
